@@ -19,6 +19,8 @@ import javax.persistence.TemporalType;
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	//modification 1 pour git
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
