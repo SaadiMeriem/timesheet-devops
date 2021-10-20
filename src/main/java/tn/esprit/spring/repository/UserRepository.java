@@ -7,8 +7,7 @@ import tn.esprit.spring.entities.User;
 
 @Repository
 public interface UserRepository extends  CrudRepository<User, Long> {
-	
-	
+		
 }
  
 
