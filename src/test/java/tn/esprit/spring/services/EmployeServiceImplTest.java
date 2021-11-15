@@ -11,6 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import tn.esprit.spring.entities.Employe;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import tn.esprit.spring.entities.Role;
 
 @SpringBootTest
@@ -24,15 +28,16 @@ public class EmployeServiceImplTest {
 	@Test
 	@Order(1)
 	public void retrieveAllEmployes() {
-		List<Employe> listUsers = es.retrieveAllEmployes();
-		Assertions.assertEquals(6, listUsers.size());
+		List<Employe> listEmps = es.retrieveAllEmployes();
+		Assertions.assertEquals(9, listEmps.size());
 	}
 	
+
 	@Test
  	@Order(2)
 	public void testAddEmploye() {
 		
-		Employe emp = new Employe("AHMED", "BEN HAFSSIA","AHMED.BENHAFSSIA@gmail.com", "AHMED", false, Role.TECHNICIEN);
+		Employe emp = new Employe("WALID", "bjewi","WALID.bjewi@gmail.com", "WALID", false, Role.TECHNICIEN);
 		Employe empAdd = es.addEmploye(emp);
 		Assertions.assertEquals(emp.getNom(), empAdd.getNom());
 	}
@@ -40,24 +45,28 @@ public class EmployeServiceImplTest {
 	@Test
  	@Order(3)
 	public void testUpdateEmploye() {
-		Employe emp = new Employe(1,"JHONY", "DEPP","JHONY.DEPP1@gmail.com", "JHONY", false, Role.TECHNICIEN);
+		Employe emp = new Employe(2L,"JAWHER", "FEHRI","JAWHER.FEHRI@gmail.com", "JAWHER", false, Role.ADMINISTRATEUR);
 		Employe empUpdated = es.addEmploye(emp);
 		Assertions.assertEquals(emp.getEmail(), empUpdated.getEmail());
 	}
-
+	
 	@Test
  	@Order(4)
 	public void testRetrieveEmploye() {
 		Employe empRetrieved = es.retrieveEmploye("1");
 		Assertions.assertEquals(1L, empRetrieved.getId());
 	}
-
+	
 	@Test
  	@Order(5)
 	public void testDeleteEmploye(){
-		es.deleteEmploye("6");
-		Assertions.assertNull(es.retrieveEmploye("6"));
+		es.deleteEmploye("14");
+		Assertions.assertNull(es.retrieveEmploye("14"));
 	}
+	
+
+	
+
  	
 	
 

@@ -11,6 +11,8 @@ import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.repository.EmployeRepository;
 
 
+
+
 @Service
 
 public class EmployeServiceImpl implements IEmployeService{
@@ -44,17 +46,17 @@ public static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 	@Override
 	public Employe addEmploye(Employe u) {
 		l.info("In Method addEmploye :"); 
-		Employe u_saved = employeRepository.save(u); 
+		Employe uSaved = employeRepository.save(u); 
 		l.info("Out Of Method addEmploye With Succes");
-		return u_saved; 
+		return uSaved; 
 	}
 
 	@Override 
 	public Employe updateEmploye(Employe u) { 
 		l.info("In Method updateEmploye :"); 
-		Employe u_saved = employeRepository.save(u); 
+		Employe uSaved = employeRepository.save(u); 
 		l.info("Out Of Method updateEmploye With Succes");
-		return u_saved; 
+		return uSaved; 
 	}
 
 	@Override
@@ -66,10 +68,15 @@ public static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 
 	@Override
 	public Employe retrieveEmploye(String id) {
-		l.info("In Method retrieveEmploye :");
-		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-		Employe u =  employeRepository.findById(Long.parseLong(id)).get(); 
-		l.info("Out Of Method retrieveEmploye With Succes");
+		Employe u= null;
+		try {
+			l.info("In Method retrieveEmploye :");
+			u =  employeRepository.findById(Long.parseLong(id)).orElse(null); 
+			l.info("Out Of Method retrieveEmploye With Succes");
+		}catch(Exception e) {
+			l.error("Out Of Method retrieveEmploye With Error: "+e);
+		}
+		
 		return u; 
 	}
 

@@ -41,17 +41,17 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User addUser(User u) {
 		l.info("In Method addUser :"); 
-		User u_saved = userRepository.save(u); 
+		User uSaved = userRepository.save(u); 
 		l.info("Out Of Method addUser With Succes");
-		return u_saved; 
+		return uSaved; 
 	}
 
 	@Override 
 	public User updateUser(User u) { 
 		l.info("In Method updateUser :"); 
-		User u_saved = userRepository.save(u); 
+		User uSaved = userRepository.save(u); 
 		l.info("Out Of Method updateUser With Succes");
-		return u_saved; 
+		return uSaved; 
 	}
 
 	@Override
@@ -63,10 +63,14 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User retrieveUser(String id) {
-		l.info("In Method retrieveUser :");
-		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
-		User u =  userRepository.findById(Long.parseLong(id)).get(); 
-		l.info("Out Of Method retrieveUser With Succes");
+		User u=null;
+		try {
+			l.info("In Method retrieveUser :");
+			u =  userRepository.findById(Long.parseLong(id)).orElse(null); 
+			l.info("Out Of Method retrieveUser With Succes");
+		}catch(Exception e) {
+			l.info("Out Of Method retrieveUser With Error :"+e);
+		}
 		return u; 
 	}
 
