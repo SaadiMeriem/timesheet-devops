@@ -63,8 +63,8 @@ class UserServiceImplTest {
 	@Test
  	@Order(5)
 	public void testDeleteUser() throws ParseException {
-		us.deleteUser("19");
-		Assertions.assertNull(us.retrieveUser("19"));
+		us.deleteUser("20");
+		Assertions.assertNull(us.retrieveUser("20"));
 	}
  	
 	 
