@@ -27,7 +27,7 @@ public class UserServiceImpl implements IUserService {
 			l.info("In Method retrieveAllUsers : ");
 			users = (List<User>) userRepository.findAll();  
 			for (User user : users) {
-				// TODO Log à ajouter pour affiher chaque user dans les logs   
+				l.info("User:"+user.toString());   
 			} 
 			l.info("Out Of Method retrieveAllUsers With Succes");
 		}catch (Exception e) {

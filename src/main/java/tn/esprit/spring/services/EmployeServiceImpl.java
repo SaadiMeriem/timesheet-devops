@@ -32,7 +32,7 @@ public static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 			l.info("In Method retrieveAllEmployes : ");
 			emps = (List<Employe>) employeRepository.findAll();  
 			for (Employe emp : emps) {
-				// TODO Log à ajouter pour affiher chaque user dans les logs   
+				l.info("Employée:"+emp.toString());   
 			} 
 			l.info("Out Of Method retrieveAllEmployes With Succes");
 		}catch (Exception e) {
